@@ -3,29 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympic Medals Tally</title>
+    <title>Olympics Medals Tally</title>
 </head>
-<body>    
-    <marquee direction="left" behavior="scroll" scrollamount="3">
-        <pre id="medalsData"></pre>
+<body>  
+    <pre id="medalsData"></pre>  
+    <marquee direction="left" behavior="scroll" scrollamount="3">        
     </marquee>
-    <script>
-        fetch('https://api.olympics.kevle.xyz/medals?country=usa') 
-        .then(function(response) {
-            return response.json();
-        }).then(function(data) {
-            const countryName = data.results[0].country.name;
-            const goldMedals = data.results[0].medals.gold;
-            const silverMedals = data.results[0].medals.silver; 
-            const bronzeMedals = data.results[0].medals.bronze; 
-            const totalMedals = data.results[0].medals.total;
-            const logText = `${countryName}: Gold - ${goldMedals}, Silver - ${silverMedals}, Bronze - ${bronzeMedals} (Total: ${totalMedals} medals)`;
-            console.log(logText);
-            document.querySelector("#medalsData").innerHTML= '<b>Paris 2024 Summer Olympics medal tally (API)</b> ' + logText;
-
-        }).catch(function(error) {
-            console.log(error);
-        }) ;
-    </script>
 </body>
+<script src="medals.js"></script>
 </html>
